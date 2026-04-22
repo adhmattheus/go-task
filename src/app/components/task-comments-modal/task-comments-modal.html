@@ -1,1 +1,81 @@
-<p>task-comments-modal works!</p>
+<div class="nax-h-[500] scrollbar-hidden overflow-scroll rounded-xl bg-white">
+  <div class="flex gap-1 p-4">
+    <img
+      src="images/icon-task-star.svg"
+      alt="Task Star Icon"
+    />
+    <h1 class="text-lg font-semibold">Comentar tarefa</h1>
+    <img
+      class="ml-auto cursor-pointer"
+      src="images/icon-close.svg"
+      alt="Close Icon"
+    />
+  </div>
+  <div class="border-t border-[#D1D5DB] p-4">
+    <p class="mb-4 text-lg font-semibold">Minha nova tarefa</p>
+    <p class="mb-2 text-sm font-semibold">Descrição</p>
+    <p class="text-base font-normal text-[#374151]">Essa é a descrição da minha nova tarefa.</p>
+  </div>
+
+  <div class="p-4">
+    <div class="flex flex-col gap-5 rounded-xl bg-[#F3F4F6] p-5">
+      <div>
+        <p class="text-sm font-bold">Comentários</p>
+      </div>
+      <div class="flex items-start gap-2">
+        <div class="flex w-full flex-col">
+          <input
+            class="flex-1 rounded-lg border border-[#D1D5DB] bg-white p-3 text-sm font-light"
+            type="text"
+            placeholder="Adicione um comentário"
+          />
+          <p class="text-sm font-semibold text-red-500">O campo é obrigatório.</p>
+        </div>
+        <button
+          class="cursor-pointer rounded-xl bg-[#2A89EF] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/50 transition-transform duration-75 active:translate-y-1"
+        >
+          Adicionar
+        </button>
+      </div>
+
+      <div class="scrollbar-hidden flex max-h-44 flex-col gap-5 overflow-scroll">
+        <div class="flex flex-col gap-3 border-b border-[#D1D5DB]">
+          <div class="">
+            <p class="text-sm font-light text-[#374151]">Finalizado</p>
+          </div>
+          <div class="mb-3 flex gap-4">
+            <p class="text-xs font-normal text-[#9CA3AF]">Comentado há 1 min atrás</p>
+            <p class="cursor-pointer text-xs font-semibold underline underline-offset-2">Apagar</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 border-b border-[#D1D5DB]">
+          <div class="">
+            <p class="text-sm font-light text-[#374151]">Finalizado</p>
+          </div>
+          <div class="mb-3 flex gap-4">
+            <p class="text-xs font-normal text-[#9CA3AF]">Comentado há 1 min atrás</p>
+            <p class="cursor-pointer text-xs font-semibold underline underline-offset-2">Apagar</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 border-b border-[#D1D5DB]">
+          <div class="">
+            <p class="text-sm font-light text-[#374151]">Finalizado</p>
+          </div>
+          <div class="mb-3 flex gap-4">
+            <p class="text-xs font-normal text-[#9CA3AF]">Comentado há 1 min atrás</p>
+            <p class="cursor-pointer text-xs font-semibold underline underline-offset-2">Apagar</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <div class="">
+            <p class="text-sm font-light text-[#374151]">Finalizado</p>
+          </div>
+          <div class="mb-3 flex gap-4">
+            <p class="text-xs font-normal text-[#9CA3AF]">Comentado há 1 min atrás</p>
+            <p class="cursor-pointer text-xs font-semibold underline underline-offset-2">Apagar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
