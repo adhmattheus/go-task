@@ -1,1 +1,50 @@
-<p>task-form-modal works!</p>
+<form class="overflow-hidden rounded-xl bg-white">
+  <div class="flex items-center gap-1 p-4">
+    <img
+      src="images/icon-new-task.svg"
+      alt="New Task Icon"
+    />
+    <h1 class="text-lg font-semibold">Criar/Editar tarefa</h1>
+    <img
+      src="images/icon-close.svg"
+      alt=" "
+      class="ml-auto cursor-pointer"
+    />
+  </div>
+
+  <div class="flex flex-col gap-4 border-y border-[#D1D5DB] p-4">
+    <div>
+      <p class="mb-2 text-sm font-semibold">Nome</p>
+      <input
+        class="w-full rounded-lg border border-[#D1D5DB] p-3 text-sm font-light text-[#89919F]"
+        type="text"
+        placeholder="Descreva o que deverá ser feito"
+      />
+      <p class="text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+    </div>
+    <div>
+      <p class="mb-2 text-sm font-semibold">Descrição</p>
+      <input
+        class="w-full rounded-lg border border-[#D1D5DB] p-3 text-sm font-light text-[#89919F]"
+        type="text"
+        placeholder="Adicione uma descrição"
+      />
+      <p class="text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+    </div>
+  </div>
+
+  <div class="flex justify-end gap-2 p-4">
+    <button
+      class="cursor-pointer rounded-xl bg-[#FAFAFA] px-4 py-3 text-sm font-semibold transition-transform duration-75 active:translate-y-1"
+      type="button"
+    >
+      Cancelar
+    </button>
+    <button
+      class="cursor-pointer rounded-xl bg-[#2A89EF] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/50 transition-transform duration-75 active:translate-y-1"
+      type="submit"
+    >
+      Criar uma tarefa
+    </button>
+  </div>
+</form>
