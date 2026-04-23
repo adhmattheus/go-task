@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ModalControllerService } from '../../services/modal-controller.service';
 
 @Component({
   selector: 'app-welcome-section',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
   templateUrl: './welcome-section.html',
   styleUrl: './welcome-section.css',
 })
-export class WelcomeSection {}
+export class WelcomeSection {
+  private readonly _modalControllerService = inject(ModalControllerService);
+
+  openNewTaskModal() {
+    this._modalControllerService.openNewTaskModal();
+  }
+}
