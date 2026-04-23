@@ -1,4 +1,8 @@
-<form class="overflow-hidden rounded-xl bg-white">
+<form
+  [formGroup]="taskForm"
+  class="overflow-hidden rounded-xl bg-white"
+  (ngSubmit)="onFormSubmit()"
+>
   <div class="flex items-center gap-1 p-4">
     <img
       src="images/icon-new-task.svg"
@@ -9,6 +13,7 @@
       src="images/icon-close.svg"
       alt=" "
       class="ml-auto cursor-pointer"
+      (click)="closeModal()"
     />
   </div>
 
@@ -19,8 +24,12 @@
         class="w-full rounded-lg border border-[#D1D5DB] p-3 text-sm font-light text-[#89919F]"
         type="text"
         placeholder="Descreva o que deverá ser feito"
+        formControlName="name"
       />
-      <p class="text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+
+      @if(taskForm.get('name')?.invalid && taskForm.get('name')?.touched) {
+      <p class="h-0 text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+      }
     </div>
     <div>
       <p class="mb-2 text-sm font-semibold">Descrição</p>
@@ -28,8 +37,12 @@
         class="w-full rounded-lg border border-[#D1D5DB] p-3 text-sm font-light text-[#89919F]"
         type="text"
         placeholder="Adicione uma descrição"
+        formControlName="description"
       />
-      <p class="text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+
+      @if(taskForm.get('description')?.invalid && taskForm.get('description')?.touched) {
+      <p class="h-0 text-sm font-semibold text-red-500">O campo é obrigatório e precisa ter no mínimo 10 caracteres</p>
+      }
     </div>
   </div>
 
@@ -37,12 +50,14 @@
     <button
       class="cursor-pointer rounded-xl bg-[#FAFAFA] px-4 py-3 text-sm font-semibold transition-transform duration-75 active:translate-y-1"
       type="button"
+      (click)="closeModal()"
     >
       Cancelar
     </button>
     <button
-      class="cursor-pointer rounded-xl bg-[#2A89EF] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/50 transition-transform duration-75 active:translate-y-1"
       type="submit"
+      [disabled]="taskForm.invalid"
+      class="{{`py-3 px-4 rounded-xl text-white textsm font-semibold cursor-pointer ${taskForm.invalid ? 'bg-[#D7D8D8]' : 'bg-[#2A89EF] transition-transform duration-75 active:translate-y-1 shadow-md shadow-blue-500/50'} `}}"
     >
       {{ _data.mode === 'create' ? 'Criar uma tarefa' : 'Salvar alterações' }}
     </button>
