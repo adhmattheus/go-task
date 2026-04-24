@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+import { TaskStatusEnum } from '../enums/task-status.enum';
+import { ITaskFormControls } from '../interfaces/task-form-controls.interface';
 import { ITask } from '../interfaces/task.interface';
+import { generateUniqueIdWithTimestamp } from '../utils/generate-unique-id-with-timestamp';
 
 @Injectable({
   providedIn: 'root',
@@ -13,15 +16,15 @@ export class TaskService {
   readonly doingTasks = this.doingTasks$.asObservable();
   readonly doneTasks = this.doneTasks$.asObservable();
 
-  getTodoTasks(): Observable<ITask[]> {
-    return this.todoTasks;
-  }
+  addTask(taskInfos: ITaskFormControls): void {
+    const newTask: ITask = {
+      ...taskInfos,
+      status: TaskStatusEnum.TODO,
+      id: generateUniqueIdWithTimestamp(),
+      comments: [],
+    };
 
-  getDoingTasks(): Observable<ITask[]> {
-    return this.doingTasks;
-  }
-
-  getDoneTasks(): Observable<ITask[]> {
-    return this.doneTasks;
+    const currentList = this.todoTasks$.getValue();
+    this.todoTasks$.next([...currentList, newTask]);
   }
 }
